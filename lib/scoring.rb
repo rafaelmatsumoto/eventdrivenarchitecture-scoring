@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-require 'colorize'
-
 class Scoring
+  @minimum_earnings = 3000
+
   def self.score(lead)
-    if lead['annual_earnings'] > 3000
-      puts "#{lead['name']} teve o crédito aprovado".green
-    else
-      puts "#{lead['name']} teve o crédito reprovado".red
-    end
+    lead['annual_earnings'] >= @minimum_earnings
   end
 end
